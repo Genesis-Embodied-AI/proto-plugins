@@ -1,4 +1,5 @@
 # Hooks run by prek (https://github.com/j178/prek). Run all: `prek run --all-files`
+# taplo runs through proto so .prototools is the single source of truth for its version.
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
@@ -10,3 +11,19 @@ repos:
       - id: check-merge-conflict
       - id: check-toml
       - id: check-yaml
+
+  - repo: local
+    hooks:
+      - id: taplo-format
+        name: taplo format
+        entry: proto run taplo -- format
+        language: system
+        pass_filenames: false
+        files: '(\.toml|\.prototools)$'
+
+      - id: taplo-lint
+        name: taplo lint
+        entry: proto run taplo -- lint
+        language: system
+        pass_filenames: false
+        files: '(\.toml|\.prototools)$'

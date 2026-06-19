@@ -1,3 +1,8 @@
+taplo = "0.10.0"
+
+[plugins]
+taplo = "file://./taplo/plugin.toml"
+
 [settings]
 # Avoid polluting upstream telemetry with CI / contributor install runs.
 telemetry = false
