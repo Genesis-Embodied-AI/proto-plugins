@@ -1,0 +1,25 @@
+name = "prek"
+type = "cli"
+
+[resolve]
+git-url = "https://github.com/j178/prek"
+version-pattern = "^v((?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+))"
+
+[platform.linux]
+download-file = "prek-{arch}-unknown-linux-musl.tar.gz"
+checksum-file = "prek-{arch}-unknown-linux-musl.tar.gz.sha256"
+exe-path = "prek-{arch}-unknown-linux-musl/prek"
+
+[platform.macos]
+download-file = "prek-{arch}-apple-darwin.tar.gz"
+checksum-file = "prek-{arch}-apple-darwin.tar.gz.sha256"
+exe-path = "prek-{arch}-apple-darwin/prek"
+
+[platform.windows]
+download-file = "prek-{arch}-pc-windows-msvc.zip"
+checksum-file = "prek-{arch}-pc-windows-msvc.zip.sha256"
+exe-path = "prek.exe"
+
+[install]
+download-url = "https://github.com/j178/prek/releases/download/v{version}/{download_file}"
+checksum-url = "https://github.com/j178/prek/releases/download/v{version}/{checksum_file}"
