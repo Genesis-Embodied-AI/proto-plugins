@@ -1,7 +1,9 @@
 taplo = "0.10.0"
+typos = "1.47.2"
 
 [plugins]
 taplo = "file://./taplo/plugin.toml"
+typos = "file://./typos/plugin.toml"
 
 [settings]
 # Avoid polluting upstream telemetry with CI / contributor install runs.
