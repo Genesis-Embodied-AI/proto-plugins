@@ -1,0 +1,3 @@
+[settings]
+# Avoid polluting upstream telemetry with CI / contributor install runs.
+telemetry = false
