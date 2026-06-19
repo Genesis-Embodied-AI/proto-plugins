@@ -1,0 +1,25 @@
+name = "direnv"
+type = "cli"
+
+[resolve]
+git-url = "https://github.com/direnv/direnv"
+version-pattern = "^v((?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+))$"
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "amd64"
+
+[platform.linux]
+download-file = "direnv.linux-{arch}"
+exe-path = "direnv"
+
+[platform.macos]
+download-file = "direnv.darwin-{arch}"
+exe-path = "direnv"
+
+[platform.windows]
+download-file = "direnv.windows-{arch}"
+exe-path = "direnv.exe"
+
+[install]
+download-url = "https://github.com/direnv/direnv/releases/download/v{version}/{download_file}"

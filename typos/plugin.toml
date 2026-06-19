@@ -1,0 +1,21 @@
+name = "typos"
+type = "cli"
+
+[resolve]
+git-url = "https://github.com/crate-ci/typos"
+version-pattern = "^v((?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+))$"
+
+[platform.linux]
+download-file = "typos-v{version}-{arch}-unknown-linux-musl.tar.gz"
+exe-path = "typos"
+
+[platform.macos]
+download-file = "typos-v{version}-{arch}-apple-darwin.tar.gz"
+exe-path = "typos"
+
+[platform.windows]
+download-file = "typos-v{version}-{arch}-pc-windows-msvc.zip"
+exe-path = "typos.exe"
+
+[install]
+download-url = "https://github.com/crate-ci/typos/releases/download/v{version}/{download_file}"

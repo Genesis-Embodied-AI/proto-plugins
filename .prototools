@@ -1,0 +1,14 @@
+direnv = "2.37.1"
+prek = "0.4.5"
+taplo = "0.10.0"
+typos = "1.47.2"
+
+[plugins]
+direnv = "file://./direnv/plugin.toml"
+prek = "file://./prek/plugin.toml"
+taplo = "file://./taplo/plugin.toml"
+typos = "file://./typos/plugin.toml"
+
+[settings]
+# Avoid polluting upstream telemetry with CI / contributor install runs.
+telemetry = false

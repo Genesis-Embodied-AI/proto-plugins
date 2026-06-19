@@ -1,0 +1,8 @@
+include = ["**/*.toml", ".prototools"]
+
+[formatting]
+align_entries = false
+array_auto_expand = true
+indent_string = "  "
+reorder_keys = false
+trailing_newline = true
