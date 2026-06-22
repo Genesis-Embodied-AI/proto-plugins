@@ -12,10 +12,10 @@ jobs:
     name: Validate
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
 
       - name: Install toolchain
-        uses: moonrepo/setup-toolchain@v0.6
+        uses: moonrepo/setup-toolchain@261c62cb5b0f580c7be7c8cd0f023a2e96756095 # v0.6
         env:
           PROTO_LOG: debug
         with:
@@ -41,10 +41,10 @@ jobs:
           - os: windows-2025
             target: x86_64-pc-windows-msvc
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
 
       - name: Install plugins
-        uses: moonrepo/setup-toolchain@v0.6
+        uses: moonrepo/setup-toolchain@261c62cb5b0f580c7be7c8cd0f023a2e96756095 # v0.6
         env:
           PROTO_LOG: debug
         with:
