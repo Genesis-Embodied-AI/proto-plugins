@@ -1,0 +1,30 @@
+name = "actionlint"
+type = "cli"
+
+[resolve]
+git-url = "https://github.com/rhysd/actionlint"
+
+# Release assets use Go-style arch naming (amd64/arm64), not proto's default
+# x86_64/aarch64.
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "amd64"
+
+[platform.linux]
+download-file = "actionlint_{version}_linux_{arch}.tar.gz"
+checksum-file = "actionlint_{version}_checksums.txt"
+exe-path = "actionlint"
+
+[platform.macos]
+download-file = "actionlint_{version}_darwin_{arch}.tar.gz"
+checksum-file = "actionlint_{version}_checksums.txt"
+exe-path = "actionlint"
+
+[platform.windows]
+download-file = "actionlint_{version}_windows_{arch}.zip"
+checksum-file = "actionlint_{version}_checksums.txt"
+exe-path = "actionlint.exe"
+
+[install]
+download-url = "https://github.com/rhysd/actionlint/releases/download/v{version}/{download_file}"
+checksum-url = "https://github.com/rhysd/actionlint/releases/download/v{version}/{checksum_file}"

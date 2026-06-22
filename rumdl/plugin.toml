@@ -1,0 +1,25 @@
+name = "rumdl"
+type = "cli"
+
+[resolve]
+git-url = "https://github.com/rvben/rumdl"
+
+# rumdl's Windows .sha256 is a bare uppercase digest, which proto compares
+# case-sensitively and rejects (it only normalizes the multi-line Get-FileHash
+# format). checksum-url resolves a single per-platform checksum-file, so it
+# can't verify the well-formed unix files while skipping Windows. Omitting it
+# lets proto hash the download into the lockfile instead.
+[platform.linux]
+download-file = "rumdl-v{version}-{arch}-unknown-linux-gnu.tar.gz"
+exe-path = "rumdl"
+
+[platform.macos]
+download-file = "rumdl-v{version}-{arch}-apple-darwin.tar.gz"
+exe-path = "rumdl"
+
+[platform.windows]
+download-file = "rumdl-v{version}-{arch}-pc-windows-msvc.zip"
+exe-path = "rumdl.exe"
+
+[install]
+download-url = "https://github.com/rvben/rumdl/releases/download/v{version}/{download_file}"

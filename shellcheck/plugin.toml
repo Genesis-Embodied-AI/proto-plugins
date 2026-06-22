@@ -1,0 +1,23 @@
+name = "shellcheck"
+type = "cli"
+
+[resolve]
+git-url = "https://github.com/koalaman/shellcheck"
+
+# shellcheck publishes no checksum files, so installs are unverified. proto
+# flattens the archive's top-level shellcheck-v{version}/ directory, so the
+# binary resolves at the root regardless of platform.
+[platform.linux]
+download-file = "shellcheck-v{version}.linux.{arch}.tar.xz"
+exe-path = "shellcheck"
+
+[platform.macos]
+download-file = "shellcheck-v{version}.darwin.{arch}.tar.xz"
+exe-path = "shellcheck"
+
+[platform.windows]
+download-file = "shellcheck-v{version}.zip"
+exe-path = "shellcheck.exe"
+
+[install]
+download-url = "https://github.com/koalaman/shellcheck/releases/download/v{version}/{download_file}"

@@ -1,0 +1,24 @@
+name = "dprint"
+type = "cli"
+
+[resolve]
+git-url = "https://github.com/dprint/dprint"
+
+[platform.linux]
+download-file = "dprint-{arch}-unknown-linux-gnu.zip"
+checksum-file = "SHASUMS256.txt"
+exe-path = "dprint"
+
+[platform.macos]
+download-file = "dprint-{arch}-apple-darwin.zip"
+checksum-file = "SHASUMS256.txt"
+exe-path = "dprint"
+
+[platform.windows]
+download-file = "dprint-{arch}-pc-windows-msvc.zip"
+checksum-file = "SHASUMS256.txt"
+exe-path = "dprint.exe"
+
+[install]
+download-url = "https://github.com/dprint/dprint/releases/download/{version}/{download_file}"
+checksum-url = "https://github.com/dprint/dprint/releases/download/{version}/{checksum_file}"

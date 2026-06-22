@@ -1,0 +1,25 @@
+name = "shfmt"
+type = "cli"
+
+[resolve]
+git-url = "https://github.com/mvdan/sh"
+
+[install.arch]
+aarch64 = "arm64"
+x86 = "386"
+x86_64 = "amd64"
+
+[platform.linux]
+download-file = "shfmt_v{version}_linux_{arch}"
+
+[platform.macos]
+download-file = "shfmt_v{version}_darwin_{arch}"
+
+[platform.windows]
+download-file = "shfmt_v{version}_windows_{arch}.exe"
+
+# shfmt ships raw binaries (no archive) and publishes no checksum file, so we
+# disable unpacking and skip checksum verification.
+[install]
+download-url = "https://github.com/mvdan/sh/releases/download/v{version}/{download_file}"
+unpack = false
