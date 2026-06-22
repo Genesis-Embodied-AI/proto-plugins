@@ -1,0 +1,30 @@
+name = "buf"
+type = "cli"
+
+[resolve]
+git-url = "https://github.com/bufbuild/buf"
+
+# buf names macOS arm assets "arm64". Linux arm assets are "aarch64", but the CI
+# matrix has no Linux arm target, so aarch64 only ever resolves on macOS here.
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "x86_64"
+
+[platform.linux]
+download-file = "buf-Linux-{arch}.tar.gz"
+checksum-file = "sha256.txt"
+exe-path = "buf/bin/buf"
+
+[platform.macos]
+download-file = "buf-Darwin-{arch}.tar.gz"
+checksum-file = "sha256.txt"
+exe-path = "buf/bin/buf"
+
+[platform.windows]
+download-file = "buf-Windows-{arch}.zip"
+checksum-file = "sha256.txt"
+exe-path = "buf/bin/buf.exe"
+
+[install]
+download-url = "https://github.com/bufbuild/buf/releases/download/v{version}/{download_file}"
+checksum-url = "https://github.com/bufbuild/buf/releases/download/v{version}/{checksum_file}"

@@ -1,0 +1,29 @@
+name = "yamlfmt"
+type = "cli"
+
+[resolve]
+git-url = "https://github.com/google/yamlfmt"
+
+# Release assets capitalize the OS and use Go-style arch naming.
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "x86_64"
+
+[platform.linux]
+download-file = "yamlfmt_{version}_Linux_{arch}.tar.gz"
+checksum-file = "checksums.txt"
+exe-path = "yamlfmt"
+
+[platform.macos]
+download-file = "yamlfmt_{version}_Darwin_{arch}.tar.gz"
+checksum-file = "checksums.txt"
+exe-path = "yamlfmt"
+
+[platform.windows]
+download-file = "yamlfmt_{version}_Windows_{arch}.tar.gz"
+checksum-file = "checksums.txt"
+exe-path = "yamlfmt.exe"
+
+[install]
+download-url = "https://github.com/google/yamlfmt/releases/download/v{version}/{download_file}"
+checksum-url = "https://github.com/google/yamlfmt/releases/download/v{version}/{checksum_file}"
