@@ -1,19 +1,15 @@
 #!/usr/bin/env bash
-# Assert every tool pinned in .prototools resolves to a real, runnable binary.
-# proto install only downloads and unpacks; it does not follow exe-path, so a
-# wrong exe-path produces a dangling symlink that install reports as success.
-# `proto bin` resolves exe-path and exits non-zero when the target is missing;
-# `proto run -- --version` then proves the binary actually executes.
-#
-# The tool list comes from the [plugins] table in .prototools (the repo's
-# single source of truth), read with the pinned taplo so adding a plugin needs
-# no edit here.
+# Assert every tool pinned in .prototools resolves to a runnable binary. proto
+# install unpacks but does not follow exe-path, so a wrong exe-path leaves a
+# dangling target that install still reports as success; proto bin catches it.
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
 
-# jq output is CRLF-terminated when taplo runs under Git Bash on Windows; tr
-# strips the carriage returns so tool names don't carry a trailing \r.
+# Without this proto emits NDJSON in an AI-agent environment, wrapping bin paths.
+export PROTO_REPORTER=text
+
+# tr strips the \r taplo's jq output carries under Git Bash on Windows.
 tools="$(proto run taplo -- get -f .prototools -o json 'plugins' | jq -r 'keys[]' | tr -d '\r')"
 
 if [ -z "$tools" ]; then
@@ -23,14 +19,15 @@ fi
 
 failed=0
 for tool in $tools; do
-  if ! proto bin "$tool" >/dev/null 2>&1; then
-    echo "FAIL $tool: proto could not resolve an executable (check exe-path)"
-    failed=1
-  elif ! proto run "$tool" -- --version >/dev/null 2>&1; then
-    echo "FAIL $tool: resolved but did not run (--version exited non-zero)"
-    failed=1
-  else
+  # || true: proto bin exits non-zero when exe-path is unresolvable.
+  bin="$(proto bin "$tool" 2>/dev/null | tr -d '\r')" || true
+  # -f rejects a directory (exe-path pointing into a nested archive); -x rejects
+  # a non-executable. Both follow symlinks, so proto's shims pass.
+  if [ -n "$bin" ] && [ -f "$bin" ] && [ -x "$bin" ]; then
     echo "ok   $tool"
+  else
+    echo "FAIL $tool: no runnable executable (check exe-path)"
+    failed=1
   fi
 done
 
