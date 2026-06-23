@@ -1,0 +1,37 @@
+name = "tsh"
+type = "cli"
+
+[resolve]
+git-url = "https://github.com/gravitational/teleport"
+# Teleport's tag list mixes clean vMAJOR.MINOR.PATCH releases with dev/branch
+# tags (vv14..., v19.0.1-dev.foo.NN, etc.); restrict to bare semver so proto's
+# resolver doesn't choke on the noise.
+version-pattern = "^v((?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+))$"
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "amd64"
+
+# tsh ships inside the full Teleport server tarball, but the layout varies by
+# platform: Linux is a flat teleport/tsh binary; macOS notarizes tsh as a
+# Gatekeeper-friendly .app bundle so the real Mach-O lives nested under
+# tsh.app/Contents/MacOS/tsh; the Windows zip is flat with no teleport/ prefix.
+# Other binaries (tctl, tbot, teleport, teleport-update) are unpacked alongside.
+[platform.linux]
+download-file = "teleport-v{version}-linux-{arch}-bin.tar.gz"
+checksum-file = "teleport-v{version}-linux-{arch}-bin.tar.gz.sha256"
+exe-path = "teleport/tsh"
+
+[platform.macos]
+download-file = "teleport-v{version}-darwin-{arch}-bin.tar.gz"
+checksum-file = "teleport-v{version}-darwin-{arch}-bin.tar.gz.sha256"
+exe-path = "teleport/tsh.app/Contents/MacOS/tsh"
+
+[platform.windows]
+download-file = "teleport-v{version}-windows-{arch}-bin.zip"
+checksum-file = "teleport-v{version}-windows-{arch}-bin.zip.sha256"
+exe-path = "tsh.exe"
+
+[install]
+download-url = "https://cdn.teleport.dev/{download_file}"
+checksum-url = "https://cdn.teleport.dev/{checksum_file}"

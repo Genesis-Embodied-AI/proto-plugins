@@ -1,0 +1,28 @@
+name = "flux"
+type = "cli"
+
+[resolve]
+git-url = "https://github.com/fluxcd/flux2"
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "amd64"
+
+[platform.linux]
+download-file = "flux_{version}_linux_{arch}.tar.gz"
+checksum-file = "flux_{version}_checksums.txt"
+exe-path = "flux"
+
+[platform.macos]
+download-file = "flux_{version}_darwin_{arch}.tar.gz"
+checksum-file = "flux_{version}_checksums.txt"
+exe-path = "flux"
+
+[platform.windows]
+download-file = "flux_{version}_windows_{arch}.zip"
+checksum-file = "flux_{version}_checksums.txt"
+exe-path = "flux.exe"
+
+[install]
+download-url = "https://github.com/fluxcd/flux2/releases/download/v{version}/{download_file}"
+checksum-url = "https://github.com/fluxcd/flux2/releases/download/v{version}/{checksum_file}"
