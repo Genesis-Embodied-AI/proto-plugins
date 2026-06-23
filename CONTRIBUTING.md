@@ -9,8 +9,9 @@ Each tool lives in its own directory containing a `plugin.toml` (the plugin) and
 version per tool and registers each plugin under `[plugins]` with a `file://` locator.
 
 CI installs every pinned tool through its local plugin across Linux, macOS (x64 and
-arm64), and Windows. A plugin that resolves and downloads on every platform is a green
-build; that install is the test, so there is no separate plugin test suite.
+arm64), and Windows, then runs `scripts/smoke-test.sh` to confirm each resolves to a
+runnable binary. Install alone is not enough: proto reports a wrong `exe-path` as a
+successful install and only fails when the dangling binary is used.
 
 ## Adding a plugin
 
@@ -69,6 +70,7 @@ from `.prototools`, not a hook-managed copy.
 ```sh
 proto run prek -- install              # optional: enable git hooks
 proto run prek -- run --all-files      # file hygiene, typos, taplo format + lint
+./scripts/smoke-test.sh                # every pinned tool resolves to a runnable binary
 ```
 
 ## Notes
