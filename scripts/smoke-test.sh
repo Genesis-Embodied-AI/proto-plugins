@@ -12,7 +12,9 @@ set -euo pipefail
 
 cd "$(dirname "$0")/.."
 
-tools="$(proto run taplo -- get -f .prototools -o json 'plugins' | jq -r 'keys[]')"
+# jq output is CRLF-terminated when taplo runs under Git Bash on Windows; tr
+# strips the carriage returns so tool names don't carry a trailing \r.
+tools="$(proto run taplo -- get -f .prototools -o json 'plugins' | jq -r 'keys[]' | tr -d '\r')"
 
 if [ -z "$tools" ]; then
   echo "no tools found in [plugins] table of .prototools" >&2
