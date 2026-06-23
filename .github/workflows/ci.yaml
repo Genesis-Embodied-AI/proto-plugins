@@ -50,3 +50,7 @@ jobs:
         with:
           auto-install: true
           cache: false
+
+      - name: Smoke-test binaries
+        shell: bash
+        run: ./scripts/smoke-test.sh
