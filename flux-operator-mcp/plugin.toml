@@ -1,0 +1,31 @@
+name = "flux-operator-mcp"
+type = "cli"
+
+[resolve]
+git-url = "https://github.com/controlplaneio-fluxcd/flux-operator"
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "amd64"
+
+# Upstream publishes a single checksum file per release that covers both the
+# flux-operator and flux-operator-mcp archives; its filename uses the
+# flux-operator_ prefix rather than the per-binary prefix.
+[platform.linux]
+download-file = "flux-operator-mcp_{version}_linux_{arch}.tar.gz"
+checksum-file = "flux-operator_{version}_checksums.txt"
+exe-path = "flux-operator-mcp"
+
+[platform.macos]
+download-file = "flux-operator-mcp_{version}_darwin_{arch}.tar.gz"
+checksum-file = "flux-operator_{version}_checksums.txt"
+exe-path = "flux-operator-mcp"
+
+[platform.windows]
+download-file = "flux-operator-mcp_{version}_windows_{arch}.zip"
+checksum-file = "flux-operator_{version}_checksums.txt"
+exe-path = "flux-operator-mcp.exe"
+
+[install]
+download-url = "https://github.com/controlplaneio-fluxcd/flux-operator/releases/download/v{version}/{download_file}"
+checksum-url = "https://github.com/controlplaneio-fluxcd/flux-operator/releases/download/v{version}/{checksum_file}"

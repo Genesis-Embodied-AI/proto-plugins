@@ -1,0 +1,28 @@
+name = "cwic"
+type = "cli"
+
+[resolve]
+git-url = "https://github.com/coreweave/cwic"
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "x86_64"
+
+[platform.linux]
+download-file = "cwic_Linux_{arch}.tar.gz"
+checksum-file = "checksums.txt"
+exe-path = "cwic"
+
+[platform.macos]
+download-file = "cwic_Darwin_{arch}.tar.gz"
+checksum-file = "checksums.txt"
+exe-path = "cwic"
+
+[platform.windows]
+download-file = "cwic_Windows_{arch}.zip"
+checksum-file = "checksums.txt"
+exe-path = "cwic.exe"
+
+[install]
+download-url = "https://github.com/coreweave/cwic/releases/download/v{version}/{download_file}"
+checksum-url = "https://github.com/coreweave/cwic/releases/download/v{version}/{checksum_file}"
