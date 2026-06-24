@@ -1,4 +1,5 @@
 actionlint = "1.7.12"
+blender = "4.5.11"
 buf = "1.71.0"
 cloud-provider-kind = "0.10.0"
 cwic = "1.33.0"
@@ -21,6 +22,7 @@ yq = "4.53.3"
 
 [plugins]
 actionlint = "file://./actionlint/plugin.toml"
+blender = "file://./blender/plugin.toml"
 buf = "file://./buf/plugin.toml"
 cloud-provider-kind = "file://./cloud-provider-kind/plugin.toml"
 cwic = "file://./cwic/plugin.toml"

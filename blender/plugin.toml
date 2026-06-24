@@ -1,0 +1,33 @@
+name = "blender"
+type = "cli"
+
+[resolve]
+git-url = "https://github.com/blender/blender"
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "x64"
+
+# Releases live under a major.minor directory (Blender4.5/) but the files carry
+# the full version. macOS ships a .dmg, which proto mounts; the others are
+# archives with a versioned prefix folder that is stripped on unpack.
+[platform.linux]
+download-file = "blender-{version}-linux-{arch}.tar.xz"
+checksum-file = "blender-{version}.sha256"
+archive-prefix = "blender-{version}-linux-{arch}"
+exe-path = "blender"
+
+[platform.macos]
+download-file = "blender-{version}-macos-{arch}.dmg"
+checksum-file = "blender-{version}.sha256"
+exe-path = "Blender.app/Contents/MacOS/Blender"
+
+[platform.windows]
+download-file = "blender-{version}-windows-{arch}.zip"
+checksum-file = "blender-{version}.sha256"
+archive-prefix = "blender-{version}-windows-{arch}"
+exe-path = "blender.exe"
+
+[install]
+download-url = "https://download.blender.org/release/Blender{versionMajor}.{versionMinor}/{download_file}"
+checksum-url = "https://download.blender.org/release/Blender{versionMajor}.{versionMinor}/{checksum_file}"
