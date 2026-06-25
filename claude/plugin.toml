@@ -1,0 +1,29 @@
+name = "claude"
+type = "cli"
+
+[resolve]
+git-url = "https://github.com/anthropics/claude-code"
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "x64"
+
+# Claude Code ships a single prebuilt binary per platform (no archive), served
+# from downloads.claude.ai under a {version}/{platform}/<binary> path. The Linux
+# build uses the static musl variant so it runs on both glibc and musl hosts.
+# Per-version checksums exist only inside a manifest.json (keyed JSON), which the
+# TOML plugin format cannot parse, so no checksum-url is published here.
+[platform.linux]
+download-file = "linux-{arch}-musl/claude"
+exe-path = "claude"
+
+[platform.macos]
+download-file = "darwin-{arch}/claude"
+exe-path = "claude"
+
+[platform.windows]
+download-file = "win32-{arch}/claude.exe"
+exe-path = "claude.exe"
+
+[install]
+download-url = "https://downloads.claude.ai/claude-code-releases/{version}/{download_file}"
