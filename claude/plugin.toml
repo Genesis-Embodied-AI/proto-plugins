@@ -9,12 +9,14 @@ aarch64 = "arm64"
 x86_64 = "x64"
 
 # Claude Code ships a single prebuilt binary per platform (no archive), served
-# from downloads.claude.ai under a {version}/{platform}/<binary> path. The Linux
-# build uses the static musl variant so it runs on both glibc and musl hosts.
+# from downloads.claude.ai under a {version}/{platform}/<binary> path. Linux uses
+# the glibc build: the upstream "musl" variant is not static (it is dynamically
+# linked against /lib/ld-musl-x86_64.so.1), so it fails with ENOENT on glibc hosts
+# such as the ubuntu CI runners; the glibc build runs on standard Linux and CI.
 # Per-version checksums exist only inside a manifest.json (keyed JSON), which the
 # TOML plugin format cannot parse, so no checksum-url is published here.
 [platform.linux]
-download-file = "linux-{arch}-musl/claude"
+download-file = "linux-{arch}/claude"
 exe-path = "claude"
 
 [platform.macos]

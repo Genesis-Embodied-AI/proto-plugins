@@ -24,7 +24,8 @@ also published at
 ## Notes
 
 - Binaries are served from `https://downloads.claude.ai/claude-code-releases/`
-  as a single executable per platform (no archive). Linux uses the static
-  `musl` build so it runs on both glibc and musl hosts.
+  as a single executable per platform (no archive). Linux uses the glibc build:
+  the upstream `musl` variant is dynamically linked against the musl loader (not
+  static), so it fails on glibc hosts such as standard CI runners.
 - Upstream publishes checksums only inside a per-version `manifest.json`, which
   the TOML plugin format cannot parse, so installs are not checksum-verified.
