@@ -3,3 +3,6 @@
 # Disabling ignore-hidden also stops .git from being skipped, so exclude it.
 extend-exclude = [".git/"]
 ignore-hidden = false
+[default.extend-identifiers]
+# Company name: https://www.hashicorp.com
+HashiCorp = "HashiCorp"

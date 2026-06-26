@@ -1,0 +1,36 @@
+name = "terraform"
+type = "cli"
+
+[resolve]
+git-url = "https://github.com/hashicorp/terraform"
+# Terraform's tag list mixes clean vMAJOR.MINOR.PATCH releases with alpha/beta/rc
+# pre-releases (v1.15.0-alpha.x, v1.15.0-rc1, etc.); restrict to bare semver.
+version-pattern = "^v((?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+))$"
+
+# Honor the tfenv/tfswitch convention so a `.terraform-version` next to a Stack
+# overrides the project-wide pin in `.prototools`.
+[detect]
+version-files = [".terraform-version"]
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "amd64"
+
+[platform.linux]
+download-file = "terraform_{version}_linux_{arch}.zip"
+checksum-file = "terraform_{version}_SHA256SUMS"
+exe-path = "terraform"
+
+[platform.macos]
+download-file = "terraform_{version}_darwin_{arch}.zip"
+checksum-file = "terraform_{version}_SHA256SUMS"
+exe-path = "terraform"
+
+[platform.windows]
+download-file = "terraform_{version}_windows_{arch}.zip"
+checksum-file = "terraform_{version}_SHA256SUMS"
+exe-path = "terraform.exe"
+
+[install]
+download-url = "https://releases.hashicorp.com/terraform/{version}/{download_file}"
+checksum-url = "https://releases.hashicorp.com/terraform/{version}/{checksum_file}"
