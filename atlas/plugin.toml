@@ -1,0 +1,30 @@
+name = "atlas"
+type = "cli"
+
+[resolve]
+git-url = "https://github.com/ariga/atlas"
+version-pattern = "^v((?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+))$"
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "amd64"
+
+# Atlas ships a single static binary per platform (not an archive), so there is
+# nothing to unpack and no exe-path. The download host carries the EULA flavor,
+# whose CockroachDB driver and docker:// dev database require `atlas login`.
+[platform.linux]
+download-file = "atlas-linux-{arch}-v{version}"
+checksum-file = "atlas-linux-{arch}-v{version}.sha256"
+
+[platform.macos]
+download-file = "atlas-darwin-{arch}-v{version}"
+checksum-file = "atlas-darwin-{arch}-v{version}.sha256"
+
+[platform.windows]
+download-file = "atlas-windows-{arch}-v{version}.exe"
+checksum-file = "atlas-windows-{arch}-v{version}.exe.sha256"
+
+[install]
+download-url = "https://atlasbinaries.com/atlas/{download_file}"
+checksum-url = "https://atlasbinaries.com/atlas/{checksum_file}"
+unpack = false
