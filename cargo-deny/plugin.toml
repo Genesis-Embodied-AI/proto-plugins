@@ -1,0 +1,34 @@
+name = "cargo-deny"
+type = "cli"
+
+[resolve]
+git-url = "https://github.com/EmbarkStudios/cargo-deny"
+
+# Checksum verification is temporarily disabled — the checksum-file / checksum-url
+# directives below are left in place but commented out. cargo-deny publishes its
+# Windows .sha256 as an uppercase digest and proto compares checksums
+# case-sensitively, so install fails on Windows. checksum-url is global to
+# [install], so it's all platforms or none. Uncomment the four lines below once
+# the proto fix ships: https://github.com/moonrepo/proto/pull/1041
+#
+# Release tags are bare semver (e.g. 0.19.9), so no version-pattern is needed and
+# the download URL uses {version} directly. Each archive nests the binary inside
+# a versioned directory. Upstream ships only x86_64 for Windows.
+[platform.linux]
+download-file = "cargo-deny-{version}-{arch}-unknown-linux-musl.tar.gz"
+# checksum-file = "cargo-deny-{version}-{arch}-unknown-linux-musl.tar.gz.sha256"
+exe-path = "cargo-deny-{version}-{arch}-unknown-linux-musl/cargo-deny"
+
+[platform.macos]
+download-file = "cargo-deny-{version}-{arch}-apple-darwin.tar.gz"
+# checksum-file = "cargo-deny-{version}-{arch}-apple-darwin.tar.gz.sha256"
+exe-path = "cargo-deny-{version}-{arch}-apple-darwin/cargo-deny"
+
+[platform.windows]
+download-file = "cargo-deny-{version}-x86_64-pc-windows-msvc.tar.gz"
+# checksum-file = "cargo-deny-{version}-x86_64-pc-windows-msvc.tar.gz.sha256"
+exe-path = "cargo-deny-{version}-x86_64-pc-windows-msvc/cargo-deny.exe"
+
+[install]
+download-url = "https://github.com/EmbarkStudios/cargo-deny/releases/download/{version}/{download_file}"
+# checksum-url = "https://github.com/EmbarkStudios/cargo-deny/releases/download/{version}/{checksum_file}"
