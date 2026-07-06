@@ -1,0 +1,29 @@
+name = "grpcurl"
+type = "cli"
+
+[resolve]
+git-url = "https://github.com/fullstorydev/grpcurl"
+
+# Release assets use aarch64/arm64 naming on macOS; Linux x86_64 matches proto's default.
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "x86_64"
+
+[platform.linux]
+download-file = "grpcurl_{version}_linux_{arch}.tar.gz"
+checksum-file = "grpcurl_{version}_checksums.txt"
+exe-path = "grpcurl"
+
+[platform.macos]
+download-file = "grpcurl_{version}_osx_{arch}.tar.gz"
+checksum-file = "grpcurl_{version}_checksums.txt"
+exe-path = "grpcurl"
+
+[platform.windows]
+download-file = "grpcurl_{version}_windows_x86_64.zip"
+checksum-file = "grpcurl_{version}_checksums.txt"
+exe-path = "grpcurl.exe"
+
+[install]
+download-url = "https://github.com/fullstorydev/grpcurl/releases/download/v{version}/{download_file}"
+checksum-url = "https://github.com/fullstorydev/grpcurl/releases/download/v{version}/{checksum_file}"
