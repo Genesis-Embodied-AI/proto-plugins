@@ -1,0 +1,24 @@
+kind/plugin.toml
+  s_cd6efda231613e::t_6847a69ef8b894 1-27
+kind/README.md
+  s_cd6efda231613e::t_56ae66c3b817d5 1-14
+.prototools
+  s_cd6efda231613e::t_0ffdcffc8cf2fa 15
+  s_cd6efda231613e::t_31faedf177aaad 44
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "575ba56a2446922461493db3e24e6fa668d4ee53",
+  "prompts": {},
+  "sessions": {
+    "s_cd6efda231613e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "68f978d0-bb81-42ad-b150-2e64016758e1",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Etienne Coutaud <etienne.coutaud@genesis-ai.company>"
+    }
+  }
+}
