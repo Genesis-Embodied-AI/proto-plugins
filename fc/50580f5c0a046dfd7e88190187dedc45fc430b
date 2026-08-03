@@ -1,0 +1,23 @@
+helm/plugin.toml
+  s_b895b5c2203000::t_921643033857d2 1-37
+helm/README.md
+  s_b895b5c2203000::t_1d6829e70e52fa 1-19
+.prototools
+  s_b895b5c2203000::t_84a9340bacbf89 15,45
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "fc50580f5c0a046dfd7e88190187dedc45fc430b",
+  "prompts": {},
+  "sessions": {
+    "s_b895b5c2203000": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e46b4da2-fa18-4a34-bbf8-8b0e538b91fb",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Tanguy Le Barzic <tanguy.lebarzic@gmail.com>"
+    }
+  }
+}
