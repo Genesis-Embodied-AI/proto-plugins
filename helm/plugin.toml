@@ -1,0 +1,37 @@
+name = "helm"
+type = "cli"
+
+[resolve]
+git-url = "https://github.com/helm/helm"
+# Helm tags release candidates (v4.0.0-rc.1), so anchor on bare semver to keep
+# `latest --resolve` on stable releases.
+version-pattern = "^v((?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+))$"
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "amd64"
+
+# Helm publishes its binaries to get.helm.sh instead of attaching them to the
+# GitHub release, so the download URLs do not follow the repository. Each
+# archive nests the binary under an <os>-<arch>/ directory.
+[platform.linux]
+archive-prefix = "linux-{arch}"
+download-file = "helm-v{version}-linux-{arch}.tar.gz"
+checksum-file = "helm-v{version}-linux-{arch}.tar.gz.sha256sum"
+exe-path = "helm"
+
+[platform.macos]
+archive-prefix = "darwin-{arch}"
+download-file = "helm-v{version}-darwin-{arch}.tar.gz"
+checksum-file = "helm-v{version}-darwin-{arch}.tar.gz.sha256sum"
+exe-path = "helm"
+
+[platform.windows]
+archive-prefix = "windows-{arch}"
+download-file = "helm-v{version}-windows-{arch}.zip"
+checksum-file = "helm-v{version}-windows-{arch}.zip.sha256sum"
+exe-path = "helm.exe"
+
+[install]
+download-url = "https://get.helm.sh/{download_file}"
+checksum-url = "https://get.helm.sh/{checksum_file}"
