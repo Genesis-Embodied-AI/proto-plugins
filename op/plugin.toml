@@ -1,0 +1,32 @@
+name = "op"
+type = "cli"
+
+# 1Password ships the CLI only as versioned archives on cache.agilebits.com.
+# There is no public repository to read tags from, and the update endpoint
+# (app-updates.agilebits.com/check/1/0/CLI2/en/2.0.0) answers with a single
+# object while proto's manifest resolver requires an array, so the supported
+# versions have to be listed here. A version absent from this list cannot be
+# pinned by any consumer: add it here first.
+[resolve]
+versions = ["2.39.0"]
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "amd64"
+
+# Every archive is flat: the binary next to a detached .sig. Upstream publishes
+# no checksum file, hence no checksum-url. There is also no windows arm64 build.
+[platform.linux]
+download-file = "op_linux_{arch}_v{version}.zip"
+exe-path = "op"
+
+[platform.macos]
+download-file = "op_darwin_{arch}_v{version}.zip"
+exe-path = "op"
+
+[platform.windows]
+download-file = "op_windows_{arch}_v{version}.zip"
+exe-path = "op.exe"
+
+[install]
+download-url = "https://cache.agilebits.com/dist/1P/op2/pkg/v{version}/{download_file}"
