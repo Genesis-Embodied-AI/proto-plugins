@@ -1,0 +1,24 @@
+name = "kargo"
+type = "cli"
+
+[resolve]
+git-url = "https://github.com/akuity/kargo"
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "amd64"
+
+[platform.linux]
+download-file = "kargo-linux-{arch}"
+
+[platform.macos]
+download-file = "kargo-darwin-{arch}"
+
+[platform.windows]
+download-file = "kargo-windows-{arch}.exe"
+
+# Kargo ships raw binaries (no archive) with an in-toto attestation rather than
+# a checksum file, so there is nothing for proto to verify against.
+[install]
+download-url = "https://github.com/akuity/kargo/releases/download/v{version}/{download_file}"
+unpack = false
