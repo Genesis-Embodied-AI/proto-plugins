@@ -1,0 +1,29 @@
+name = "air"
+type = "cli"
+
+[resolve]
+git-url = "https://github.com/air-verse/air"
+
+# Release assets use Go-style arch naming (amd64/arm64).
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "amd64"
+
+[platform.linux]
+download-file = "air_{version}_linux_{arch}.tar.gz"
+checksum-file = "air_{version}_checksums.txt"
+exe-path = "air"
+
+[platform.macos]
+download-file = "air_{version}_darwin_{arch}.tar.gz"
+checksum-file = "air_{version}_checksums.txt"
+exe-path = "air"
+
+[platform.windows]
+download-file = "air_{version}_windows_{arch}.tar.gz"
+checksum-file = "air_{version}_checksums.txt"
+exe-path = "air.exe"
+
+[install]
+download-url = "https://github.com/air-verse/air/releases/download/v{version}/{download_file}"
+checksum-url = "https://github.com/air-verse/air/releases/download/v{version}/{checksum_file}"
