@@ -1,0 +1,30 @@
+name = "k9s"
+type = "cli"
+
+[resolve]
+git-url = "https://github.com/derailed/k9s"
+
+# Release assets use Go-style arch naming (amd64/arm64) with a capitalized OS,
+# and macOS is labeled "Darwin".
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "amd64"
+
+[platform.linux]
+download-file = "k9s_Linux_{arch}.tar.gz"
+checksum-file = "checksums.sha256"
+exe-path = "k9s"
+
+[platform.macos]
+download-file = "k9s_Darwin_{arch}.tar.gz"
+checksum-file = "checksums.sha256"
+exe-path = "k9s"
+
+[platform.windows]
+download-file = "k9s_Windows_{arch}.zip"
+checksum-file = "checksums.sha256"
+exe-path = "k9s.exe"
+
+[install]
+download-url = "https://github.com/derailed/k9s/releases/download/v{version}/{download_file}"
+checksum-url = "https://github.com/derailed/k9s/releases/download/v{version}/{checksum_file}"
