@@ -1,0 +1,24 @@
+k9s/plugin.toml
+  s_6a70c3ba7b0a4b::t_90244baa453e2c 1-30
+.prototools
+  s_6a70c3ba7b0a4b::t_5bdd37121c8152 17
+  s_6a70c3ba7b0a4b::t_6af65e23f21326 51
+k9s/README.md
+  s_6a70c3ba7b0a4b::t_d9beaa9ec81f98 1-14
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "85c6bf09e8810340c8ff811de1f43118ddbfea90",
+  "prompts": {},
+  "sessions": {
+    "s_6a70c3ba7b0a4b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9529edd9-713a-4262-a622-4d1f188486a5",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Jean-Baptiste Louazel <jb.louazel@genesis-ai.company>"
+    }
+  }
+}
