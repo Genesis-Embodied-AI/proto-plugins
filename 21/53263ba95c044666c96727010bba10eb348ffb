@@ -1,0 +1,21 @@
+CONTRIBUTING.md
+  s_deef31f1957e34::t_fe95c30dcfe3d0 33-35
+README.md
+  s_deef31f1957e34::t_1fef949bb99627 8-44
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "2153263ba95c044666c96727010bba10eb348ffb",
+  "prompts": {},
+  "sessions": {
+    "s_deef31f1957e34": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5c2ad045-354f-4fcb-b2d8-35d4d16a7f49",
+        "model": "unknown"
+      },
+      "human_author": "Jean-Baptiste Louazel <jb.louazel@genesis-ai.company>"
+    }
+  }
+}
