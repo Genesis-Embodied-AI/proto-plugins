@@ -30,7 +30,9 @@ successful install and only fails when the dangling binary is used.
 
    `proto pin <tool> X.Y.Z` writes the pin line for you.
 
-4. Verify it installs and the checks pass (see below).
+4. Add the tool to the table in [README.md](README.md), keeping the rows in
+   alphabetical order, linked to its directory.
+5. Verify it installs and the checks pass (see below).
 
 ## Schema reference
 
