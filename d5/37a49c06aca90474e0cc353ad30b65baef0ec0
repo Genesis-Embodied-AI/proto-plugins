@@ -1,0 +1,23 @@
+.prototools
+  s_deef31f1957e34::t_5104577ad215ad 24,59
+sccache/README.md
+  s_deef31f1957e34::t_4ccf673a684c25 1-16
+sccache/plugin.toml
+  s_deef31f1957e34::t_30eb975b15a798 1-30
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "d537a49c06aca90474e0cc353ad30b65baef0ec0",
+  "prompts": {},
+  "sessions": {
+    "s_deef31f1957e34": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5c2ad045-354f-4fcb-b2d8-35d4d16a7f49",
+        "model": "unknown"
+      },
+      "human_author": "Jean-Baptiste Louazel <jb.louazel@genesis-ai.company>"
+    }
+  }
+}
