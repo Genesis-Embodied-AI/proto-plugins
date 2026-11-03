@@ -32,6 +32,7 @@ available plugins and the versions CI installs against.
 | [op](./op/) | 1Password CLI |
 | [prek](./prek/) | pre-commit-compatible hook runner |
 | [rumdl](./rumdl/) | Markdown linter and formatter |
+| [sccache](./sccache/) | Shared compilation cache (ccache-like) |
 | [shellcheck](./shellcheck/) | Shell script static analysis |
 | [shfmt](./shfmt/) | Shell script formatter |
 | [taplo](./taplo/) | TOML toolkit (format and lint) |
