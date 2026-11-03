@@ -1,0 +1,19 @@
+README.md
+  s_5741744b435735::t_492df13b7105fd 35
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "ba29d6ff4cb93a770a80a2dfdcdd2ee815c3b6a3",
+  "prompts": {},
+  "sessions": {
+    "s_5741744b435735": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "44c55950-40ec-4bdb-8eaf-294faf919b40",
+        "model": "unknown"
+      },
+      "human_author": "Jean-Baptiste Louazel <jb.louazel@genesis-ai.company>"
+    }
+  }
+}
