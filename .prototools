@@ -1,6 +1,6 @@
 actionlint = "1.7.12"
 air = "1.67.4"
-atlas = "1.2.3"
+atlas = "1.3.10"
 blender = "4.5.11"
 buf = "1.71.0"
 cargo-deny = "0.19.9"
