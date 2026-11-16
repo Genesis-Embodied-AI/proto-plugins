@@ -1,0 +1,23 @@
+.prototools
+  s_14b2fe675a43dd::t_4bd084394da9d6 3
+atlas/README.md
+  s_14b2fe675a43dd::t_e3e57bbdf7fcd1 6-10
+atlas/plugin.toml
+  s_14b2fe675a43dd::t_61db52b6603c6f 4-5,7-8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "3b10d29a17d6e069b1bf83f7260d5b3e8c6db640",
+  "prompts": {},
+  "sessions": {
+    "s_14b2fe675a43dd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d421bb0c-95a4-4e30-a0f5-8961f1928884",
+        "model": "unknown"
+      },
+      "human_author": "Jean-Baptiste Louazel <jb.louazel@genesis-ai.company>"
+    }
+  }
+}
