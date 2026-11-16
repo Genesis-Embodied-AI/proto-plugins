@@ -1,9 +1,11 @@
 name = "atlas"
 type = "cli"
 
+# Ariga does not tag every release on GitHub (1.3.1+ have no tag), but publishes each one
+# to npm as @ariga/atlas. A JSON path in manifest-version-key needs proto 0.64+.
 [resolve]
-git-url = "https://github.com/ariga/atlas"
-version-pattern = "^v((?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+))$"
+manifest-url = "https://registry.npmjs.org/@ariga/atlas"
+manifest-version-key = "versions.*~"
 
 [install.arch]
 aarch64 = "arm64"
