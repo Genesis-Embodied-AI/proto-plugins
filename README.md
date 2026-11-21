@@ -25,10 +25,12 @@ available plugins and the versions CI installs against.
 | [golangci-lint](./golangci-lint/) | Go linters aggregator |
 | [grpcurl](./grpcurl/) | curl for gRPC services |
 | [helm](./helm/) | Kubernetes package manager |
+| [jq](./jq/) | Command-line JSON processor |
 | [k9s](./k9s/) | Terminal UI for managing Kubernetes clusters |
 | [kargo](./kargo/) | Kargo GitOps promotion CLI |
 | [kind](./kind/) | Kubernetes in Docker |
 | [kubeconform](./kubeconform/) | Kubernetes manifest validator |
+| [kubectl](./kubectl/) | Kubernetes command-line tool |
 | [op](./op/) | 1Password CLI |
 | [prek](./prek/) | pre-commit-compatible hook runner |
 | [rumdl](./rumdl/) | Markdown linter and formatter |
